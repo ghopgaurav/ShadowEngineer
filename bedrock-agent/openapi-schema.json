@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Onboarding Copilot MCP Tools",
+    "version": "1.0.0",
+    "description": "MCP tools for processing standup audio and helping new joiners"
+  },
+  "paths": {
+    "/get-tickets": {
+      "post": {
+        "summary": "Get available Jira tickets",
+        "description": "Retrieves a list of available Jira tickets for onboarding tasks. Use this when you need to know what tasks are available for the new joiner.",
+        "operationId": "getTickets",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of available tickets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "tickets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "title": { "type": "string" },
+                          "description": { "type": "string" },
+                          "priority": { "type": "string" },
+                          "estimatedHours": { "type": "number" }
+                        }
+                      }
+                    },
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-docs": {
+      "post": {
+        "summary": "Get documentation",
+        "description": "Fetches documentation from S3. Use this when you need to understand the system architecture or get context about the codebase.",
+        "operationId": "getDocs",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "doc_name": {
+                    "type": "string",
+                    "description": "Name of the document to fetch",
+                    "default": "architecture_overview.md"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Document content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "content": { "type": "string" },
+                    "doc_name": { "type": "string" },
+                    "source": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-glossary": {
+      "post": {
+        "summary": "Get team glossary",
+        "description": "Retrieves team glossary with technical terms and definitions. Use this when you need to explain technical terms mentioned in the standup.",
+        "operationId": "getGlossary",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Team glossary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "glossary": {
+                      "type": "object",
+                      "additionalProperties": { "type": "string" }
+                    },
+                    "term_count": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/write-summary": {
+      "post": {
+        "summary": "Save standup summary",
+        "description": "Saves the generated standup summary to S3. Use this after you've analyzed the standup and created a beginner-friendly summary.",
+        "operationId": "writeSummary",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "summary": {
+                    "type": "string",
+                    "description": "JSON string of the complete summary"
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "description": "User identifier",
+                    "default": "new_joiner"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Summary saved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "summary_id": { "type": "string" },
+                    "saved_s3": { "type": "boolean" },
+                    "location": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

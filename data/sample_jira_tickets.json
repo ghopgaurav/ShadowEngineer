@@ -1,0 +1,44 @@
+[
+  {
+    "id": "BE-101",
+    "title": "Set up local development environment",
+    "description": "Install Node.js, Docker, and configure AWS CLI",
+    "priority": "High",
+    "estimatedHours": 4
+  },
+  {
+    "id": "BE-102",
+    "title": "Understand API Gateway architecture",
+    "description": "Review API Gateway setup and routing logic",
+    "priority": "High",
+    "estimatedHours": 6
+  },
+  {
+    "id": "BE-103",
+    "title": "Set up DynamoDB local",
+    "description": "Configure local DynamoDB for development",
+    "priority": "Medium",
+    "estimatedHours": 3
+  },
+  {
+    "id": "BE-104",
+    "title": "Implement user authentication endpoint",
+    "description": "Create POST /auth/login endpoint with JWT",
+    "priority": "High",
+    "estimatedHours": 8
+  },
+  {
+    "id": "BE-105",
+    "title": "Add unit tests for auth service",
+    "description": "Write Jest tests for authentication logic",
+    "priority": "Medium",
+    "estimatedHours": 4
+  },
+  {
+    "id": "BE-106",
+    "title": "Deploy Lambda function to dev",
+    "description": "Deploy auth service to AWS Lambda dev environment",
+    "priority": "Medium",
+    "estimatedHours": 3
+  }
+]

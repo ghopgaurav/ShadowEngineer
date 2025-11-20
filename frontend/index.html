@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Onboarding Copilot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SHADOW ENGINEER</h1>
+            <p>Upload standup videos or chat with AI to get personalized onboarding insights</p>
+        </header>
+
+        <!-- Mode Selector -->
+        <div class="mode-selector">
+            <button class="mode-btn active" id="uploadModeBtn" onclick="switchMode('upload')">
+                📹 Upload Video
+            </button>
+            <button class="mode-btn" id="chatModeBtn" onclick="switchMode('chat')">
+                💬 Chat with AI
+            </button>
+        </div>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card">
+                    <h2>📹 Upload Standup Recording</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" accept="audio/*,video/*" hidden>
+                        <div class="upload-content">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Click to upload or drag and drop</p>
+                            <p class="upload-hint">Audio or Video files (MP3, MP4, WAV, WebM)</p>
+                        </div>
+                    </div>
+                    <button id="uploadBtn" class="btn btn-primary" disabled>
+                        <span class="btn-text">Upload & Analyze</span>
+                    </button>
+                </div>
+
+                <!-- User Info -->
+                <div class="user-info">
+                    <label for="userId">Your Name:</label>
+                    <input type="text" id="userId" placeholder="e.g., john_doe" value="new_engineer">
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-card">
+                    <h3>Processing Your Recording...</h3>
+                    <div class="progress-steps">
+                        <div class="step" id="step1">
+                            <div class="step-icon">📤</div>
+                            <div class="step-text">Upload file</div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-icon">🎙️</div>
+                            <div class="step-text">Transcribe & show</div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-icon">🤖</div>
+                            <div class="step-text">AI analyze</div>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-icon">📊</div>
+                            <div class="step-text">Map data</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Starting...</p>
+                    <!-- Transcript preview will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h2>✨ AI Analysis Results</h2>
+                    
+                    <!-- Transcript -->
+                    <div class="result-block">
+                        <h3>📝 Transcript</h3>
+                        <div class="transcript-box" id="transcriptBox"></div>
+                    </div>
+
+                    <!-- AI Summary -->
+                    <div class="result-block">
+                        <h3>🤖 AI-Powered Summary</h3>
+                        <div class="summary-box" id="summaryBox"></div>
+                    </div>
+
+                    <!-- Mapped Tickets -->
+                    <div class="result-block">
+                        <h3>🎫 Relevant Jira Tickets</h3>
+                        <div class="tickets-grid" id="ticketsGrid"></div>
+                    </div>
+
+                    <!-- Mapped Documentation -->
+                    <div class="result-block">
+                        <h3>📚 Related Documentation</h3>
+                        <div class="docs-list" id="docsList"></div>
+                    </div>
+
+                    <!-- Tutorial Videos -->
+                    <div class="result-block">
+                        <h3>🎬 Recommended Tutorial Videos</h3>
+                        <div class="tutorials-grid" id="tutorialsList"></div>
+                    </div>
+
+                    <!-- Technical Terms -->
+                    <div class="result-block">
+                        <h3>📖 Technical Terms Explained</h3>
+                        <div class="glossary-list" id="glossaryList"></div>
+                    </div>
+
+                    <!-- Action Items -->
+                    <div class="result-block">
+                        <h3>✅ Your Action Items</h3>
+                        <div class="actions-list" id="actionsList"></div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="resetForm()">
+                    Upload Another Recording
+                </button>
+            </section>
+
+            <!-- Chat Section -->
+            <section class="chat-section" id="chatSection" style="display: none;">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2>💬 Chat with AI Onboarding Assistant</h2>
+                        <p>Ask questions about tickets, documentation, or get help with your onboarding</p>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Hi! I'm your AI onboarding assistant. I can help you with:</p>
+                                <ul>
+                                    <li>Understanding Jira tickets and tasks</li>
+                                    <li>Explaining technical terms and concepts</li>
+                                    <li>Finding relevant documentation</li>
+                                    <li>Recommending tutorial videos</li>
+                                    <li>Creating onboarding plans</li>
+                                </ul>
+                                <p>What would you like to know?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Ask me anything about your onboarding..." maxlength="500">
+                            <button id="sendBtn" class="send-btn" onclick="sendMessage()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="chat-suggestions">
+                            <button class="suggestion-btn" onclick="sendSuggestion('What tickets should I start with?')">What tickets should I start with?</button>
+                            <button class="suggestion-btn" onclick="sendSuggestion('Explain the system architecture')">Explain the system architecture</button>
+                            <button class="suggestion-btn" onclick="sendSuggestion('What is Docker and why do we use it?')">What is Docker?</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by AWS Bedrock Agent, Deepgram, and Claude AI</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

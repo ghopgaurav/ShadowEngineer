@@ -1,0 +1,454 @@
+{
+  "videos": [
+    {
+      "id": "TUT-001",
+      "title": "Setting Up Your Local Development Environment",
+      "description": "Complete guide to installing Node.js, Docker, and AWS CLI",
+      "duration": "15:30",
+      "keywords": ["setup", "environment", "docker", "nodejs", "aws cli", "installation", "development"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-002",
+      "title": "Understanding API Gateway Architecture",
+      "description": "Deep dive into AWS API Gateway and routing logic",
+      "duration": "22:45",
+      "keywords": ["api gateway", "aws", "routing", "architecture", "rest api", "endpoints"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-003",
+      "title": "DynamoDB Basics for Beginners",
+      "description": "Learn NoSQL database concepts with DynamoDB",
+      "duration": "18:20",
+      "keywords": ["dynamodb", "database", "nosql", "aws", "tables", "queries"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-103"]
+    },
+    {
+      "id": "TUT-004",
+      "title": "JWT Authentication Implementation",
+      "description": "Building secure authentication with JSON Web Tokens",
+      "duration": "25:15",
+      "keywords": ["jwt", "authentication", "security", "tokens", "login", "auth"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-005",
+      "title": "Writing Unit Tests with Jest",
+      "description": "Complete guide to testing Node.js applications",
+      "duration": "20:30",
+      "keywords": ["jest", "testing", "unit tests", "tdd", "nodejs", "test"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-006",
+      "title": "Deploying Lambda Functions to AWS",
+      "description": "Step-by-step Lambda deployment guide",
+      "duration": "16:45",
+      "keywords": ["lambda", "deployment", "aws", "serverless", "deploy", "cloud"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-007",
+      "title": "Docker Fundamentals",
+      "description": "Understanding containers and Docker basics",
+      "duration": "19:00",
+      "keywords": ["docker", "containers", "virtualization", "images", "dockerfile"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-008",
+      "title": "AWS CLI Complete Guide",
+      "description": "Master the AWS Command Line Interface",
+      "duration": "21:30",
+      "keywords": ["aws cli", "command line", "aws", "cli", "terminal", "commands"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-009",
+      "title": "Express.js REST API Development",
+      "description": "Building RESTful APIs with Express",
+      "duration": "28:15",
+      "keywords": ["express", "nodejs", "rest api", "backend", "api", "server"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102", "BE-104"]
+    },
+    {
+      "id": "TUT-010",
+      "title": "S3 Storage and File Management",
+      "description": "Working with AWS S3 for file storage",
+      "duration": "17:20",
+      "keywords": ["s3", "storage", "aws", "files", "buckets", "cloud storage"],
+      "difficulty": "beginner",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-011",
+      "title": "Understanding Serverless Architecture",
+      "description": "Introduction to serverless computing concepts",
+      "duration": "23:45",
+      "keywords": ["serverless", "lambda", "architecture", "cloud", "aws", "functions"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-012",
+      "title": "Git and GitHub Workflow",
+      "description": "Version control best practices",
+      "duration": "19:30",
+      "keywords": ["git", "github", "version control", "commits", "branches", "pull request"],
+      "difficulty": "beginner",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-013",
+      "title": "Node.js Async/Await Patterns",
+      "description": "Mastering asynchronous JavaScript",
+      "duration": "22:00",
+      "keywords": ["nodejs", "async", "await", "promises", "javascript", "asynchronous"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-014",
+      "title": "DynamoDB Advanced Queries",
+      "description": "Complex queries and indexing strategies",
+      "duration": "26:30",
+      "keywords": ["dynamodb", "queries", "indexes", "gsi", "database", "optimization"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-103"]
+    },
+    {
+      "id": "TUT-015",
+      "title": "API Security Best Practices",
+      "description": "Securing your REST APIs",
+      "duration": "24:15",
+      "keywords": ["security", "api", "authentication", "authorization", "best practices"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-016",
+      "title": "CloudWatch Monitoring and Logging",
+      "description": "Monitoring AWS applications",
+      "duration": "18:45",
+      "keywords": ["cloudwatch", "monitoring", "logging", "aws", "metrics", "alerts"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-017",
+      "title": "Environment Variables and Configuration",
+      "description": "Managing app configuration securely",
+      "duration": "14:20",
+      "keywords": ["environment", "config", "dotenv", "secrets", "configuration"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-018",
+      "title": "Testing Strategies for APIs",
+      "description": "Integration and E2E testing",
+      "duration": "27:30",
+      "keywords": ["testing", "api", "integration", "e2e", "jest", "supertest"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-019",
+      "title": "Lambda Function Optimization",
+      "description": "Performance tuning for serverless",
+      "duration": "20:15",
+      "keywords": ["lambda", "optimization", "performance", "serverless", "cold start"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-020",
+      "title": "CORS and API Gateway Configuration",
+      "description": "Handling cross-origin requests",
+      "duration": "16:00",
+      "keywords": ["cors", "api gateway", "cross-origin", "headers", "configuration"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-021",
+      "title": "IAM Roles and Permissions",
+      "description": "AWS security and access management",
+      "duration": "21:45",
+      "keywords": ["iam", "permissions", "roles", "security", "aws", "access"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-022",
+      "title": "Debugging Node.js Applications",
+      "description": "Tools and techniques for debugging",
+      "duration": "19:15",
+      "keywords": ["debugging", "nodejs", "troubleshooting", "errors", "console"],
+      "difficulty": "beginner",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-023",
+      "title": "RESTful API Design Principles",
+      "description": "Best practices for API design",
+      "duration": "23:00",
+      "keywords": ["rest", "api design", "best practices", "architecture", "endpoints"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-024",
+      "title": "Docker Compose for Multi-Container Apps",
+      "description": "Orchestrating multiple containers",
+      "duration": "25:45",
+      "keywords": ["docker compose", "containers", "orchestration", "docker", "microservices"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-025",
+      "title": "JWT vs Session Authentication",
+      "description": "Comparing authentication strategies",
+      "duration": "18:30",
+      "keywords": ["jwt", "session", "authentication", "comparison", "security"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-026",
+      "title": "Error Handling in Express",
+      "description": "Robust error handling patterns",
+      "duration": "17:45",
+      "keywords": ["error handling", "express", "nodejs", "middleware", "errors"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-027",
+      "title": "DynamoDB Data Modeling",
+      "description": "Designing efficient NoSQL schemas",
+      "duration": "29:00",
+      "keywords": ["dynamodb", "data modeling", "schema", "nosql", "design"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-103"]
+    },
+    {
+      "id": "TUT-028",
+      "title": "CI/CD with GitHub Actions",
+      "description": "Automating deployment pipelines",
+      "duration": "26:15",
+      "keywords": ["ci/cd", "github actions", "automation", "deployment", "pipeline"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-029",
+      "title": "API Rate Limiting and Throttling",
+      "description": "Protecting your APIs from abuse",
+      "duration": "15:30",
+      "keywords": ["rate limiting", "throttling", "api", "security", "protection"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-030",
+      "title": "Mocking and Stubbing in Tests",
+      "description": "Advanced testing techniques",
+      "duration": "22:20",
+      "keywords": ["mocking", "stubbing", "testing", "jest", "unit tests"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-031",
+      "title": "AWS Lambda Layers",
+      "description": "Sharing code between Lambda functions",
+      "duration": "19:45",
+      "keywords": ["lambda layers", "code sharing", "aws", "lambda", "dependencies"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-032",
+      "title": "Postman for API Testing",
+      "description": "Testing APIs with Postman",
+      "duration": "16:30",
+      "keywords": ["postman", "api testing", "testing", "rest", "tools"],
+      "difficulty": "beginner",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-033",
+      "title": "Understanding Middleware in Express",
+      "description": "Request processing pipeline",
+      "duration": "20:00",
+      "keywords": ["middleware", "express", "nodejs", "request", "pipeline"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-034",
+      "title": "AWS VPC and Networking Basics",
+      "description": "Understanding cloud networking",
+      "duration": "24:45",
+      "keywords": ["vpc", "networking", "aws", "subnets", "security groups"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-035",
+      "title": "Password Hashing with bcrypt",
+      "description": "Secure password storage",
+      "duration": "13:15",
+      "keywords": ["bcrypt", "hashing", "passwords", "security", "authentication"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-036",
+      "title": "Code Coverage with Jest",
+      "description": "Measuring test effectiveness",
+      "duration": "17:00",
+      "keywords": ["code coverage", "jest", "testing", "metrics", "quality"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-037",
+      "title": "Lambda Event Sources",
+      "description": "Triggering Lambda functions",
+      "duration": "21:30",
+      "keywords": ["lambda", "event sources", "triggers", "aws", "events"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-038",
+      "title": "API Versioning Strategies",
+      "description": "Managing API versions",
+      "duration": "18:15",
+      "keywords": ["api versioning", "versioning", "api", "backward compatibility"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-039",
+      "title": "Docker Networking",
+      "description": "Container communication",
+      "duration": "22:45",
+      "keywords": ["docker", "networking", "containers", "communication", "ports"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-101"]
+    },
+    {
+      "id": "TUT-040",
+      "title": "DynamoDB Streams",
+      "description": "Real-time data processing",
+      "duration": "23:30",
+      "keywords": ["dynamodb streams", "real-time", "events", "processing", "triggers"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-103"]
+    },
+    {
+      "id": "TUT-041",
+      "title": "OAuth 2.0 Implementation",
+      "description": "Third-party authentication",
+      "duration": "27:15",
+      "keywords": ["oauth", "authentication", "third-party", "security", "tokens"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-042",
+      "title": "Test-Driven Development (TDD)",
+      "description": "Writing tests first",
+      "duration": "25:00",
+      "keywords": ["tdd", "test-driven", "testing", "methodology", "best practices"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-043",
+      "title": "Serverless Framework",
+      "description": "Deploying with Serverless",
+      "duration": "28:45",
+      "keywords": ["serverless framework", "deployment", "infrastructure", "yaml", "aws"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-044",
+      "title": "API Documentation with Swagger",
+      "description": "Documenting your APIs",
+      "duration": "19:30",
+      "keywords": ["swagger", "documentation", "api", "openapi", "docs"],
+      "difficulty": "beginner",
+      "relatedTickets": ["BE-102"]
+    },
+    {
+      "id": "TUT-045",
+      "title": "Docker Volume Management",
+      "description": "Persistent data in containers",
+      "duration": "16:45",
+      "keywords": ["docker volumes", "persistence", "data", "storage", "containers"],
+      "difficulty": "intermediate",
+      "relatedTickets": ["BE-101", "BE-103"]
+    },
+    {
+      "id": "TUT-046",
+      "title": "GraphQL vs REST",
+      "description": "Comparing API architectures",
+      "duration": "24:00",
+      "keywords": ["graphql", "rest", "api", "comparison", "architecture"],
+      "difficulty": "intermediate",
+      "relatedTickets": []
+    },
+    {
+      "id": "TUT-047",
+      "title": "Refresh Tokens and Token Rotation",
+      "description": "Advanced JWT patterns",
+      "duration": "20:45",
+      "keywords": ["refresh tokens", "jwt", "token rotation", "security", "authentication"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-104"]
+    },
+    {
+      "id": "TUT-048",
+      "title": "Integration Testing Best Practices",
+      "description": "Testing component interactions",
+      "duration": "26:00",
+      "keywords": ["integration testing", "testing", "best practices", "components"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-105"]
+    },
+    {
+      "id": "TUT-049",
+      "title": "Lambda Cold Starts Explained",
+      "description": "Understanding and optimizing cold starts",
+      "duration": "18:00",
+      "keywords": ["cold starts", "lambda", "performance", "optimization", "serverless"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-106"]
+    },
+    {
+      "id": "TUT-050",
+      "title": "Building Scalable APIs",
+      "description": "Architecture for high-traffic applications",
+      "duration": "31:15",
+      "keywords": ["scalability", "architecture", "api", "performance", "high-traffic"],
+      "difficulty": "advanced",
+      "relatedTickets": ["BE-102"]
+    }
+  ]
+}

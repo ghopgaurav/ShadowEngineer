@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Diagnostic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; }
+        .error { background: #f8d7da; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Diagnostic Tool</h1>
+    
+    <div class="test" id="serverTest">
+        <h3>1. Server Health Check</h3>
+        <button onclick="testServer()">Test Server</button>
+        <div id="serverResult"></div>
+    </div>
+
+    <div class="test" id="uploadTest">
+        <h3>2. Upload Test</h3>
+        <input type="file" id="testFile" accept="audio/*,video/*">
+        <button onclick="testUpload()">Test Upload</button>
+        <div id="uploadResult"></div>
+    </div>
+
+    <div class="test" id="consoleTest">
+        <h3>3. Console Logs</h3>
+        <div id="consoleLogs"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+        const logs = [];
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            logs.push(`[${timestamp}] ${type.toUpperCase()}: ${message}`);
+            document.getElementById('consoleLogs').innerHTML = 
+                '<pre>' + logs.join('\n') + '</pre>';
+            console.log(message);
+        }
+
+        async function testServer() {
+            const result = document.getElementById('serverResult');
+            result.innerHTML = 'Testing...';
+            
+            try {
+                log('Testing server health endpoint...');
+                const response = await fetch('http://localhost:3000/health');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    result.innerHTML = `<div class="success">✅ Server is running!<pre>${JSON.stringify(data, null, 2)}</pre></div>`;
+                    log('Server health check passed', 'success');
+                } else {
+                    result.innerHTML = `<div class="error">❌ Server returned status ${response.status}</div>`;
+                    log(`Server returned status ${response.status}`, 'error');
+                }
+            } catch (error) {
+                result.innerHTML = `<div class="error">❌ Cannot connect to server: ${error.message}</div>`;
+                log(`Server connection failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testUpload() {
+            const fileInput = document.getElementById('testFile');
+            const result = document.getElementById('uploadResult');
+            
+            if (!fileInput.files[0]) {
+                result.innerHTML = '<div class="error">❌ Please select a file first</div>';
+                return;
+            }
+
+            const file = fileInput.files[0];
+            log(`Testing upload with file: ${file.name} (${file.size} bytes, ${file.type})`);
+            
+            result.innerHTML = 'Uploading...';
+
+            try {
+                const formData = new FormData();
+                formData.append('audio', file);
+                formData.append('userId', 'diagnostic_test');
+
+                log('Sending POST request to /api/upload-video...');
+                const response = await fetch(`${API_BASE}/upload-video`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                log(`Response status: ${response.status}`);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Upload failed: ${response.status} - ${errorText}`);
+                }
+
+                const data = await response.json();
+                log('Upload successful!', 'success');
+                
+                result.innerHTML = `
+                    <div class="success">
+                        <h4>✅ Upload Successful!</h4>
+                        <p><strong>Transcript:</strong> ${data.transcript?.substring(0, 100)}...</p>
+                        <p><strong>Mapped Tickets:</strong> ${data.mappedTickets?.length || 0}</p>
+                        <p><strong>Technical Terms:</strong> ${Object.keys(data.technicalTerms || {}).length}</p>
+                        <details>
+                            <summary>Full Response</summary>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </details>
+                    </div>
+                `;
+            } catch (error) {
+                result.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                log(`Upload failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-test server on load
+        window.addEventListener('load', () => {
+            log('Diagnostic tool loaded');
+            testServer();
+        });
+    </script>
+</body>
+</html>
