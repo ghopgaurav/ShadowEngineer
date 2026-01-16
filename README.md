@@ -4,6 +4,7 @@
 
 ### 🎥 Video/Audio Upload & Analysis
 Upload Team meetings/Tutorials (audio or video) and get AI-powered insights:
+Video Link - https://www.loom.com/share/ffc258798f7e44049ad216f72f8d3b85
 
 1. **Upload** - Drag & drop or click to upload audio/video files
 2. **Transcribe** - Automatic transcription using Deepgram
